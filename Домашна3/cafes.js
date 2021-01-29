@@ -93,7 +93,7 @@ function successFunction(data) {
         table += '<tr>';
         table += '<td onclick="showLocation(this)">';
         table += rowCells[3] + '</td>';
-        table += '<td>' + rowCells[4] + '<br>' + rowCells[5] + '<br>';
+        table += '<td>' + rowCells[5] + '<br>';
         table += '</td>';
         table += '</tr>';
     }
