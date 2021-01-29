@@ -90,11 +90,11 @@ button{
     margin-top: 20px;
     color: white
 }
-/*#map {
-    /* configure the size of the map 
-    flex: 1 1 auto;
+#map {
+    /* configure the size of the map */
+    height: 500px;
 }
-#mapLayout{
+/*#mapLayout{
     height: 100vh;
     display: flex;
     flex-flow: column;
