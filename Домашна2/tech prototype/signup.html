@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Hunters</title>
+</head>
+
+<style>
+    body{
+        background-color: black;
+        color: white;
+        font-family: Calibri, serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 15px;
+    }
+    img{
+        margin-left: 20%;
+    }
+    a {
+        border: solid 1px whitesmoke;
+        width: 30px;
+        color: whitesmoke;
+        text-decoration: none;
+    }
+    a:hover{
+        background-color: #1b1e20;
+    }
+    input{
+        background-color: black;
+        color: white;
+        width: 400px;
+        height: 50px;
+    }
+    button{
+        background-color: #1b1e20;
+        color: white;
+        width: 100px;
+        height: 25px;
+    }
+</style>
+<script>
+
+    function signup() {
+        window.open('where.html','_self');
+    }
+</script>
+<body>
+<div id="buttons">
+    <a href="homepage.html" target="_self" style="float: right; margin-right: 20px; width: 50px">EN</a>
+    <a href="mk_homepage.html" target="_self" style="float: right; margin-right: 20px; width: 50px">MK</a>
+</div>
+<div id="logo" style="width: 100%">
+    <img onclick="window.open('homepage.html','_self')" src="https://lh3.googleusercontent.com/pw/ACtC-3f2UPFje2_-GNOXFxnc_Zn0X6rVbkWEWe7AxI6-WeE0bzwpI-xsDZbUG8dpX1qyi-DF22vL709DZkmEJpr7np6icy0EvWltHO7umdT_WeD0R8AfFvh0vNl4tgLrqQT4ppTzXKNl-dBZj9Tb1pS4e8qkcw=w822-h293-no?authuser=0">
+</div>
+<div>
+    <p>Sign in</p>
+    <input type="text" value="Username"><br><br>
+    <input type="text" value="Email">
+    <p>Password</p>
+    <input type="password">
+    <p>Confirm Password</p>
+    <input type="password"><br><br>
+    <button onclick="signup()" id="signup">Sign Up</button>
+</div>
+</body>
+</html>

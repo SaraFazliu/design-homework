@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Hunters</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="buttons">
+            <a href="#" onclick="setLang('en')" target="_self"
+                style="float: right; margin-right: 20px; width: 50px">EN</a>
+            <a href="#" onclick="setLang('mk')" target="_self"
+                style="float: right; margin-right: 20px; width: 50px">MK</a>
+        </div>
+        <div class="clearfix"></div>
+        <a href="index.html">
+            <img id="logoHomepage" src="logo.png">
+
+        </a>
+        <div>
+            <p id="loginText"></p>
+            <input type="email" name='email' id='emailField'><br><br>
+            <input type="password" name='password' id='passwordField'><br><br>
+            <button onclick="login()" id="loginButton"></button><br>
+            <p id="or">Or</p>
+            <button onclick="location.href = 'register.html'" id="registerButton"></button>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+    <script src="javascript.js"></script>
+    <script>
+        function localization(){
+        if (lang() === 'mk') {
+           document.getElementById('loginText').innerText = 'Најавете се';
+           document.getElementById('loginButton').innerText = 'Најавете се';
+           document.getElementById('registerButton').innerText = 'Регистрирај се';
+           document.getElementById('or').innerText = 'Или';
+           document.getElementById('emailField').placeholder = 'Вашата електронска пошта';
+           document.getElementById('passwordField').placeholder = 'Вашата лозинка';
+   
+       }
+       if (lang() === 'en') {
+           document.getElementById('loginText').innerText = 'Login';
+           document.getElementById('loginButton').innerText = 'Login';
+           document.getElementById('registerButton').innerText = 'Register';
+           document.getElementById('or').innerText = 'Or';
+           document.getElementById('emailField').placeholder = 'Your email address';
+           document.getElementById('passwordField').placeholder = 'Your password';
+   
+       }}
+       localization();
+   </script>
+</body>
+
+</html>

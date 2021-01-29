@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coffe Hunters</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="search">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Where to?" class="searchField">
+    <a href="where.html" id="logoMap">
+        <img src="logo.png">
+        </a> 
+       <ol id='list'> 
+        <li class="cafes">Mon Frere</li> 
+        <li class="cafes">Shisha</li> 
+        <li class="cafes">Gallery 7</li> 
+        <li class="cafes">Coffe Tearoom Lachi</li> 
+        <li class="cafes">k8</li> 
+        <li class="cafes">Nargile Cafe</li> 
+        <li class="cafes">Urban</li> 
+        <li class="cafes">Bomonti</li> 
+        <li class="cafes"Clique Bar</li> 
+        <li class="cafes">Boomerang Shisha</li> 
+        <li class="cafes">Old Town</li> 
+    </ol> 
+
+<div id="map"></div>
+<div id="list"></div>
+    
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+<script src="javascript.js"></script>
+<script src="cafes.js"></script>
+<script>
+
+    function localization() {
+        if (lang() === 'mk') {
+
+
+        }
+        if (lang() === 'en') {
+
+
+        }
+    }
+
+    localization();
+</script>
+</body>
+</html>

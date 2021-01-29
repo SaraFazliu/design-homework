@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Hunters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="wrapper">
+    <a href="index.html">
+        <img id="logoOther" src="logo.png">
+    </a>
+    <div class="clearfix"></div>
+
+    //kod za menu
+    <h3>MENU</h3>
+    
+    
+    
+    
+    
+    
+    <div class="bigText">
+        <p id="tekst"></p>
+        <p id="where"></p>
+        <a class="bigButtons"  id="oldBazaar" href="cafes.html?where=Old Bazaar" target="_self"></a><br><br>
+        <a class="bigButtons" id="skopjeCenter" href="cafes.html?where=Center" target="_self"></a>
+
+    </div>
+    <p class="loggedIn">
+        <span id="loggedAs"></span><span id="userEmail"></span><br />
+        <a href="#" id="logoutButton" onclick="logout()">Logout</a>
+    </p>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+<script src="javascript.js"></script>
+<script>
+    function localization() {
+        document.getElementById('userEmail').innerText = localStorage.getItem('user');
+        if (lang() === 'mk') {
+            document.getElementById('tekst').innerText = 'Корисниците на нашата веб-страница кои имаат картички за добивање поени за лојалност во нашите кафулиња можат полесно да најдат места каде да ги освојат бодовите. . .\n' +
+                'Со посета на кафулиња кај Старата чаршија имате 10 поени, во спротивно доколку ги посетите нашите места во центарот на Скопје имате 15 поени.\n' +
+                'Дојдете да не посетите и да ги испиете најдобрите кафиња досега.';
+            document.getElementById('where').innerText = 'Каде сакате да одите?';
+            document.getElementById('oldBazaar').innerText = 'Стара чаршија';
+            document.getElementById('skopjeCenter').innerText = 'Центар Скопје';
+            document.getElementById('loggedAs').innerText = 'Вие сте најавени како: ';
+            document.getElementById('logoutButton').innerText = 'Одјавете се';
+
+        }
+        if (lang() === 'en') {
+            document.getElementById('tekst').innerText = 'Users of our website who have cards for gaining loyalty points at our cafes can find places more easy where to gain the points . . .\n' +
+                'By visiting cafes at Old Bazaar you have 10 points, otherwise if you visit our places in center of Skopje you have 15 points.\n' +
+                'Come visit us, and drink the best coffees ever.';
+            document.getElementById('where').innerText = 'Where do you want to go?';
+            document.getElementById('oldBazaar').innerText = 'Old Bazaar';
+            document.getElementById('skopjeCenter').innerText = 'Center of Skopje';
+            document.getElementById('loggedAs').innerText = 'You are logged as: ';
+            document.getElementById('logoutButton').innerText = 'Logout';
+
+
+
+        }
+    }
+
+    localization();
+</script>
+</body>
+</html>

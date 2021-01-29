@@ -1,0 +1,4 @@
+osmfilter del-skopje.osm --keep="amenity=cafe" | osmconvert64-0.8.8p.exe - --all-to-nodes --csv="@id @lat @lon name location opening_hours" --csv-headline --csv-separator="," -o="kafe.csv"
+
+
+//So navedenata komanda pogore od del-skopje.osm zacuvuvame podatoci za lokacija,longitude,latitude,id i work hours na kafichi na kafe.csv so pomosh na osmfilter i osmconvert.

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coffe Hunters</title>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <style>
+        /*html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }*/
+        body{
+            background-color: black;
+            color: white;
+        }
+        #map {
+            /* configure the size of the map */
+            width: 100%;
+            height: 500px;
+        }
+        #search{
+            display: flex;
+            width: 100%;
+            height: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="search">
+    <input type="search" value="Where to?" style="background-color: #1b1e20; width: 70%; height: 50%; margin-top: 20px; color: white">
+    <img  onclick="window.open('homepage.html','_self')" style="width: 29%; height: 100px" src="https://lh3.googleusercontent.com/pw/ACtC-3dHSA0Z6dwj3XG901UyddwrnzfZ7lOsr0IRhtFfDBXQrXpLOEDUk__gEpBx6xtC2qLpla9Hcm1YlMv9YzMkJaiUObNE0Fu9t0TPWezDGa5NBu7IqBERHRjD9RZPuixJkmBkegIuujF7_XXyRaLZK203RQ=w290-h99-no?authuser=0">
+</div>
+
+<div id="map"></div>
+<div id="coffees">
+
+</div>
+<script>
+    // initialize Leaflet
+    var map = L.map('map').setView({lon: 21.4338, lat: 41.9987}, 15);
+
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        //attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    // show the scale bar on the lower left corner
+    L.control.scale().addTo(map);
+
+    // show a marker on the map
+    L.marker({lon: 21.4338, lat: 41.9987}).addTo(map);//.bindPopup('The center of the world').addTo(map);
+</script>
+</body>
+</html>
