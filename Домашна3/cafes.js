@@ -11,11 +11,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.scale().addTo(map);
 
 
-getLocation();
 function getLocation() {
     //if user's location settings is disabled this wont show marker
     map.locate({
-        setView: true,
+        setView: false,
         enableHighAccuracy: true
     })
         .on('locationfound', function (e) {
@@ -24,7 +23,7 @@ function getLocation() {
         });
 }
 
-function loadLocations(where) {
+/*function loadLocations(where) {
     $.ajax({
         url: 'kafe.csv',
         dataType: 'text',
@@ -40,9 +39,9 @@ function loadLocations(where) {
                     .bindPopup(`<p style="color:black;">${rowCells[3]}</p>`)
             }
         });
-}
+}*/
 
-loadLocations(findGetParameter('where'));
+//loadLocations(findGetParameter('where'));
 function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
@@ -71,7 +70,6 @@ function myFunction() {
     }
 }
 
-
 function showLocation(name){
     $.ajax({
         url: 'kafe.csv',
@@ -83,7 +81,12 @@ function showLocation(name){
             var rowCells = allRows[singleRow].split(',');
             console.log(name.innerText);
             if (rowCells[3] === name.innerText){
-                L.marker({lon: parseFloat(rowCells[2]), lat: parseFloat(rowCells[1])}).addTo(map);
+                let to = L.marker({lon: rowCells[2], lat: rowCells[1]}).getLatLng();
+                let from = getLocation();
+                console.log(from + ' ' + to);
+                L.marker({lon: rowCells[2], lat: rowCells[1]}).addTo(map)
+                    .bindPopup(`<p style="color:black;">${from.distanceTo(to) + ' km'}</p>`);
+
             }
         }
     }
@@ -96,6 +99,7 @@ function parseData() {
         dataType: 'text',
     }).done(successFunction);
 }
+
 function successFunction(data) {
     var allRows = data.split(/\r?\n|\r/);
     var table = '<table>';
