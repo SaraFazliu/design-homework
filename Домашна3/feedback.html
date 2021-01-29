@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Anketa_za_feedback</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<script type="text/javascript">
+
+  function res_() {
+    document.getElementById("res").reset()
+  }
+
+  function ThankYou(){
+    let x=document.getElementById("name").value;
+    let y=document.getElementById("surname").value;
+    let text=x + ' ' + y;
+   alert(language = 'en' ? ' Thank you for Your feedback ' : " Ви благодарам за пополнување на анкетата " + text)
+    }
+  
+    function localization() {
+        if (lang() === 'mk') {
+            document.getElementById('naslov').innerHTML='Анкета за оценка на страната'
+            document.getElementById('imence').innerText = 'Име';
+            document.getElementById('prezime').innerText = 'Презиме';
+
+            document.getElementById('vozrast').placeholder = 'Возраст';
+            document.getElementById('pol').placeholder = 'Пол';
+            document.getElementById('maz').placeholder = 'Маж';
+
+            document.getElementById('zena').placeholder = 'Жена';
+            document.getElementById('drugo').placeholder = 'Друго';
+           
+
+            document.getElementById('cuci').innerHTML='Дали ви беше корисна странава?'
+            document.getElementById('da').innerText = 'Да';
+            document.getElementById('ne').innerText = 'Не';
+
+            document.getElementById('ocenka').placeholder = 'Внесете оценка за странава';
+            document.getElementById('1-10').placeholder = 'Внесете оценка od (1-10)';
+            document.getElementById('komentar').placeholder = 'Коментар';
+
+        }
+        if (lang() === 'en') {
+          document.getElementById('naslov').innerHTML='Feedback form '
+            document.getElementById('imence').innerText = 'Name';
+            document.getElementById('prezime').innerText = 'Surname';
+
+            document.getElementById('vozrast').placeholder = 'Age';
+            document.getElementById('pol').placeholder = 'Gender';
+            document.getElementById('maz').placeholder = 'Male';
+
+            document.getElementById('zena').placeholder = 'Female';
+            document.getElementById('drugo').placeholder = 'Other';
+           
+
+            document.getElementById('cuci').innerHTML='Is this page useful?'
+            document.getElementById('da').innerText = 'Yes';
+            document.getElementById('ne').innerText = 'No';
+
+            document.getElementById('ocenka').placeholder = 'Please rate this website';
+            document.getElementById('1-10').placeholder = 'Rate (1-10)';
+            document.getElementById('komentar').placeholder = 'Leave your comment here';
+
+        }
+    }
+
+    localization();
+</script>
+
+</head>
+
+<body>
+
+
+
+  <br>
+  <h1 id="naslov"></h1>
+  <form id="res" name= "survey" class="margin" method="POST" onsubmit="ThankYou()" action="">
+
+    <h4><label for="name" id="imence">
+        <input name="name" type="text" id="name" size="25" maxlength="30" required>
+      </label></h4>
+
+    <h4><label id="prezime">
+        <input name="surname" id="surname" type="text" size="30" maxlength="35" required>
+      </label></h4>
+
+
+    <h4> <label for="birthday" id="vozrast"></label></h4>
+    <input type="date" id="birthday" name="birthday">
+
+
+    <h4><label id="pol"><br>
+
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male" id="maz"></label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female" id="zena"></label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other" id="drugo"></label>
+    </h4></label>
+
+
+
+    <h4 id="cuci"></h4>
+    <input type="checkbox" id="1" name="choise1" value="Да">
+    <label id="da" for="vehicle1"></label><br>
+    <input type="checkbox" id="2" name="choise2" value="Не">
+    <label id="no" for="vehicle2"></label><br>
+
+    <h4 id="ocenka"></h4>
+    <label id="1-10" for="vol">
+    </label>
+    <input type="range" id="vol" name="vol" min="0" max="10">
+
+    <h4><label for="web" id="komentar"></label></h4>
+    <textarea id="wеб" name="wеб" rows="10" cols="50">
+   </textarea>
+  
+    <br><br>
+
+    <input type="submit" >
+    <input type="button" onclick="res_()" value="reset">
+</form>
+</body>
+
+</html>
