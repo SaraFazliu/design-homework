@@ -17,7 +17,8 @@
         <p id="tekst"></p>
         <p id="where"></p>
         <a class="bigButtons"  id="oldBazaar" href="cafes.html?where=Old Bazaar" target="_self"></a><br><br>
-        <a class="bigButtons" id="skopjeCenter" href="cafes.html?where=Center" target="_self"></a>
+        <a class="bigButtons" id="skopjeCenter" href="cafes.html?where=Center" target="_self"></a><br><br>
+        <a class="bigButtons" id="anketa" href="feedback.html" target="_self"></a>
 
     </div>
     <p class="loggedIn">
@@ -39,7 +40,7 @@
             document.getElementById('skopjeCenter').innerText = 'Центар Скопје';
             document.getElementById('loggedAs').innerText = 'Вие сте најавени како: ';
             document.getElementById('logoutButton').innerText = 'Одјавете се';
-
+document.getElementById('anketa').innerText = 'Анкета';
         }
         if (lang() === 'en') {
             document.getElementById('tekst').innerText = 'Users of our website who have cards for gaining loyalty points at our cafes can find places more easy where to gain the points . . .\n' +
@@ -51,6 +52,7 @@
             document.getElementById('loggedAs').innerText = 'You are logged as: ';
             document.getElementById('logoutButton').innerText = 'Logout';
 
+             document.getElementById('anketa').innerText = 'Feedback';
 
 
         }
