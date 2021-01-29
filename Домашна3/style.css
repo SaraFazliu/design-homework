@@ -93,7 +93,7 @@ button{
 #map {
     /* configure the size of the map */
     /*flex: 1 1 auto;*/
-    height: 500px;
+    width: 500px;
 }
 #list{
     height: 1000px;
