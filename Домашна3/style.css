@@ -92,12 +92,12 @@ button{
 }
 #map {
     /* configure the size of the map */
-    /* flex: 1 1 auto; */
+    flex: 1 1 auto;
     height: 500px;
 }
-/*#mapLayout{
+body{
     height: 100vh;
     display: flex;
     flex-flow: column;
     align-items: stretch;
-}*/
+}
