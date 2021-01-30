@@ -11,37 +11,38 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.scale().addTo(map);
 
 
-function getLocation() {
-    //if user's location settings is disabled this wont show marker
-    map.locate({
-        setView: false,
-        enableHighAccuracy: true
-    })
-        .on('locationfound', function (e) {
-            var marker = new L.marker(e.latlng);
-            marker.addTo(map);
-        });
+function getDistance(des_longitude, des_latitude) {
+    var origin_longitude = toRadian(getMyLongitude());
+    var origin_latitude = toRadian(getMyLatitude());
+    console.log(origin_latitude + ' ' + origin_longitude);
+    des_longitude = toRadian(des_longitude);
+    des_latitude = toRadian(des_latitude);
+    var deltaLat = des_latitude - origin_latitude;
+    var deltaLon = des_longitude - origin_longitude;
+
+    console.log(des_latitude + ' ' + des_longitude);
+
+    var a = Math.pow(Math.sin(deltaLat/2), 2) + Math.cos(origin_latitude) * Math.cos(des_latitude) * Math.pow(Math.sin(deltaLon/2), 2);
+    var c = 2 * Math.asin(Math.sqrt(a));
+    var EARTH_RADIUS = 6371;
+    return c * EARTH_RADIUS * 1000;
+}
+function toRadian(degree) {
+    return degree*Math.PI/180;
+}
+function getMyLongitude(){
+    map.locate().on('locationfound', function (e){
+        console.log(e.latlng.lon);
+        return e.lon;
+    });
+}
+function getMyLatitude(){
+    map.locate().on('locationfound', function (e){
+        console.log(e.latlng.lat);
+        return e.lat;
+    });
 }
 
-/*function loadLocations(where) {
-    $.ajax({
-        url: 'kafe.csv',
-        dataType: 'text',
-    }).done(
-        (data) => {
-            var allRows = data.split(/\r?\n|\r/);
-
-            for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
-                var rowCells = allRows[singleRow].split(',');
-                if(where !== rowCells[4]) continue;
-                console.log(rowCells);
-                L.marker([rowCells[1], rowCells[2]]).addTo(map)
-                    .bindPopup(`<p style="color:black;">${rowCells[3]}</p>`)
-            }
-        });
-}*/
-
-//loadLocations(findGetParameter('where'));
 function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
@@ -65,11 +66,8 @@ function showLocation(name){
             var rowCells = allRows[singleRow].split(',');
             console.log(name);
             if (rowCells[3] === name){
-                let to = L.marker({lon: rowCells[2], lat: rowCells[1]}).getLatLng();
-                let from = getLocation();
-                console.log(from + ' ' + to);
                 L.marker({lon: rowCells[2], lat: rowCells[1]}).addTo(map)
-                    .bindPopup(`<p style="color:black;">${from.distanceTo(to) + ' km'}</p>`);
+                    .bindPopup(`<p style="color:black;">${getDistance(rowCells[2],rowCells[1]) + ' km'}</p>`);
 
             }
         }
