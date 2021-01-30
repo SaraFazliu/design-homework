@@ -11,9 +11,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.scale().addTo(map);
 
 
+
+var originlng = 0;
+var originlat = 0;
+map.locate().on('locationfound', function (e){
+    console.log(e.latlng.lng);
+    setoriginlng(e.latlng.lng);
+    setoriginlat(e.latlng.lat);
+});
+function setoriginlng(data){
+    originlng = data;
+}
+function setoriginlat(data) {
+    originlat = data;
+}
 function getDistance(des_longitude, des_latitude) {
-    var origin_longitude = toRadian(getMyLongitude());
-    var origin_latitude = toRadian(getMyLatitude());
+    var origin_longitude = toRadian(originlng);
+    var origin_latitude = toRadian(originlat);
     console.log(origin_latitude + ' ' + origin_longitude);
     des_longitude = toRadian(des_longitude);
     des_latitude = toRadian(des_latitude);
@@ -25,22 +39,10 @@ function getDistance(des_longitude, des_latitude) {
     var a = Math.pow(Math.sin(deltaLat/2), 2) + Math.cos(origin_latitude) * Math.cos(des_latitude) * Math.pow(Math.sin(deltaLon/2), 2);
     var c = 2 * Math.asin(Math.sqrt(a));
     var EARTH_RADIUS = 6371;
-    return c * EARTH_RADIUS * 1000;
+    return c * EARTH_RADIUS;
 }
 function toRadian(degree) {
     return degree*Math.PI/180;
-}
-function getMyLongitude(){
-    map.locate().on('locationfound', function (e){
-        console.log(e.latlng.lon);
-        return e.lon;
-    });
-}
-function getMyLatitude(){
-    map.locate().on('locationfound', function (e){
-        console.log(e.latlng.lat);
-        return e.lat;
-    });
 }
 
 function findGetParameter(parameterName) {
@@ -67,7 +69,7 @@ function showLocation(name){
             console.log(name);
             if (rowCells[3] === name){
                 L.marker({lon: rowCells[2], lat: rowCells[1]}).addTo(map)
-                    .bindPopup(`<p style="color:black;">${getDistance(rowCells[2],rowCells[1]) + ' km'}</p>`);
+                    .bindPopup(`<p style="color:black;">${getDistance(rowCells[2],rowCells[1]).toFixed(2) + ' km'}</p>`);
 
             }
         }
