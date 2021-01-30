@@ -102,3 +102,28 @@ function successFunction(data) {
 
     document.getElementById("list").innerHTML=table;
 }
+
+$( function() {
+    var where = findGetParameter('where');
+    var availableTags = [];
+    $.ajax({
+        url: 'kafe.csv',
+        dataType: 'text',
+    }).done(
+        (data) => {
+            var allRows = data.split(/\r?\n|\r/);
+
+            for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
+                var rowCells = allRows[singleRow].split(',');
+                if(where !== rowCells[4]) continue;
+                availableTags.push(rowCells[3]);
+                console.log(availableTags);
+            }
+
+            $( "#myInput" ).autocomplete({
+                source: availableTags
+            });
+
+        });
+
+} );
