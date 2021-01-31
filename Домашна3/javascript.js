@@ -27,12 +27,12 @@ function register() {
     let password = document.getElementById('passwordField').value;
     let passwordRepeat = document.getElementById('repeatPasswordField').value;
       if(email === '' || password === '' || passwordRepeat === ''){
-        alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+        alert(lang() === 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
        return;
       }
     
     if(password !== passwordRepeat){ 
-        alert(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
+        alert(lang() === 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
         return ;
     }
    
@@ -64,7 +64,7 @@ function login() {
     let password = document.getElementById('passwordField').value;
 
     if(email === '' || password === '' ){
-        alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+        alert(lang() === 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
         return;
     }
     button.innerText = button.innerText+" - loading";
