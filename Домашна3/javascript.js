@@ -99,3 +99,22 @@ function redirect() {
     }
 }
 redirect();
+
+  function restart() {
+    document.location.reload();
+  }
+
+  function submit(){
+    let ime = document.getElementById("ime").value;
+    let prezime = document.getElementById("prezime").value;
+    let meil = document.getElementById("meil").value;
+    if(ime==="" || prezime==="" || meil===""){
+        alert(lang() === 'en' ? "All fields are required!" : "Сите полиња мора да се пополнат!");
+    }
+    else {
+        let text = ime + ' ' + prezime;
+        alert(lang() === 'en' ? "Thank you for your feedback " : "Ви благодариме за пополнување на анкетата " + text);
+        window.location.href = "where.html";
+    }
+  }
+  
