@@ -50,6 +50,7 @@ function register() {
             var errorCode = error.code;
             var errorMessage = error.message;
             // ..
+        alert(errorMessage);
         });
 }
 function logout(){
