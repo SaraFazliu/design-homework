@@ -2,119 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anketa_za_feedback</title>
+  <title>Coffee Hunters</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 <div id="feedback">
-  <h1 id="naslov"></h1>
-  <form id="res" name= "survey" class="margin" method="POST" onsubmit="ThankYou()" action="">
+  <p id="title"></p>
 
-    <h4 id="imence"><label for="name">
-        <input name="name" type="text" id="name" size="25" maxlength="30" required>
-      </label></h4>
+      <label for="name" id="name"></label>
+      <input type="text" id="ime" size="25" maxlength="30" required><br><br>
 
-    <h4><label id="prezime">
-        <input name="surname" id="surname" type="text" size="30" maxlength="35" required>
-      </label></h4>
+      <label for="surname" id="surname"></label>
+      <input type="text" id="prezime" size="30" maxlength="35" required><br><br>
 
+      <label for="email" id="email"></label>
+      <input type="text" id="meil"><br><br><br>
 
-    <h4> <label for="birthday" id="vozrast"></label></h4>
-    <input type="date" id="birthday" name="birthday">
+    <label for="rate" id="rate"></label><br>
+    <input type="range" id="range" min="0" max="10"><br><br>
 
+    <textarea id="comment" rows="10" cols="50"></textarea><br><br>
 
-    <h4><label id="pol"><br>
+    <input type="button" onclick="submit()" value="Submit">
+    <input type="button" onclick="restart()" value="Reset">
 
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male" id="maz"></label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female" id="zena"></label><br>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other" id="drugo"></label>
-    </h4></label>
-
-
-
-    <h4 id="cuci"></h4>
-    <input type="checkbox" id="1" name="choise1" value="Да">
-    <label id="da" for="vehicle1"></label><br>
-    <input type="checkbox" id="2" name="choise2" value="Не">
-    <label id="no" for="vehicle2"></label><br>
-
-    <h4 id="ocenka"></h4>
-    <label id="1-10" for="vol">
-    </label>
-    <input type="range" id="vol" name="vol" min="0" max="10">
-
-    <h4><label for="web" id="komentar"></label></h4>
-    <textarea id="wеб" name="wеб" rows="10" cols="50">
-   </textarea>
-  
-    <br><br>
-
-    <input type="submit" >
-    <input type="button" onclick="res_()" value="reset">
-</form>
-  </div>
+</div>
   
 <script src="javascript.js"></script>
 <script>
 
-  function res_() {
-    document.getElementById("res").reset()
-  }
-
-  function ThankYou(){
-    let x=document.getElementById("name").value;
-    let y=document.getElementById("surname").value;
-    let text=x + ' ' + y;
-   alert(language = 'en' ? ' Thank you for Your feedback ' : " Ви благодарам за пополнување на анкетата " + text)
-    }
-  
     function localization() {
         if (lang() === 'mk') {
-            document.getElementById('naslov').innerText='Анкета за оценка на страната'
-            document.getElementById('imence').innerText = 'Име';
-            document.getElementById('prezime').innerText = 'Презиме';
-
-            document.getElementById('vozrast').innerText = 'Возраст';
-            document.getElementById('pol').innerText = 'Пол';
-            document.getElementById('maz').innerText = 'Маж';
-
-            document.getElementById('zena').innerText = 'Жена';
-            document.getElementById('drugo').innerText = 'Друго';
-           
-
-            document.getElementById('cuci').innerText='Дали ви беше корисна странава?'
-            document.getElementById('da').innerText = 'Да';
-            document.getElementById('ne').innerText = 'Не';
-
-            document.getElementById('ocenka').innerText = 'Внесете оценка за странава';
-            document.getElementById('1-10').innerText = 'Внесете оценка od (1-10)';
-            document.getElementById('komentar').innerText = 'Коментар';
+            document.getElementById('title').innerText='Анкета за оценка на страната'
+            document.getElementById('name').innerText = 'Име';
+            document.getElementById('surname').innerText = 'Презиме';
+            document.getElementById('email').innerText = 'Е-пошта';
+            document.getElementById('rate').innerText = 'Од 1-10 колку е корисна страната?';
+            document.getElementById('comment').innerText = 'Оставете коментар!';
 
         }
         if (lang() === 'en') {
-          document.getElementById('naslov').innerText='Feedback form '
-            document.getElementById('imence').innerText = 'Name';
-            document.getElementById('prezime').innerText = 'Surname';
-
-            document.getElementById('vozrast').innerText = 'Age';
-            document.getElementById('pol').innerText = 'Gender';
-            document.getElementById('maz').innerText = 'Male';
-
-            document.getElementById('zena').innerText = 'Female';
-            document.getElementById('drugo').innerText = 'Other';
-           
-
-            document.getElementById('cuci').innerText='Is this page useful?'
-            document.getElementById('da').innerText = 'Yes';
-            document.getElementById('ne').innerText = 'No';
-
-            document.getElementById('ocenka').innerText = 'Please rate this website';
-            document.getElementById('1-10').innerText = 'Rate (1-10)';
-            document.getElementById('komentar').innerText = 'Leave your comment here';
+            document.getElementById('title').innerText='Feedback form '
+            document.getElementById('name').innerText = 'Name';
+            document.getElementById('surname').innerText = 'Surname';
+            document.getElementById('email').innerText = 'E-mail';
+            document.getElementById('rate').innerText = 'From 1-10 how much useful is this page?';
+            document.getElementById('comment').innerText = 'Leave a comment!';
 
         }
     }
