@@ -21,8 +21,8 @@
    alert(language = 'en' ? ' Thank you for Your feedback ' : " Ви благодарам за пополнување на анкетата " + text)
     }
   
-   // function localization() {
-      //  if (lang() === 'mk') {
+    function localization() {
+        if (lang() === 'mk') {
             document.getElementById('naslov').innerHTML='Анкета за оценка на страната'
             document.getElementById('imence').innerText = 'Име';
             document.getElementById('prezime').innerText = 'Презиме';
@@ -43,8 +43,8 @@
             document.getElementById('1-10').placeholder = 'Внесете оценка od (1-10)';
             document.getElementById('komentar').placeholder = 'Коментар';
 
-       // }
-       /* if (lang() === 'en') {
+        }
+        if (lang() === 'en') {
           document.getElementById('naslov').innerHTML='Feedback form '
             document.getElementById('imence').innerText = 'Name';
             document.getElementById('prezime').innerText = 'Surname';
@@ -65,8 +65,8 @@
             document.getElementById('1-10').placeholder = 'Rate (1-10)';
             document.getElementById('komentar').placeholder = 'Leave your comment here';
 
-        }*/
-    //}
+        }
+    }
 
     localization();
 </script>
